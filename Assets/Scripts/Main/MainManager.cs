@@ -19,6 +19,7 @@ public class MainManager : MonoBehaviour
     public static int powerRes = 0;
     public static int luckRes = 0;
     public static int shieldRes = 0;
+    public static int countRes = 0;
 
     List<int> power = new List<int>();
     List<int> powerMax = new List<int>();
@@ -49,6 +50,7 @@ public class MainManager : MonoBehaviour
         powerRes = power[count];
         luckRes = luck[count];
         shieldRes = shield[count];
+        countRes = count;
 
         for (int i = 0; i < Characterlist.transform.childCount; i++)
         {
@@ -84,6 +86,7 @@ public class MainManager : MonoBehaviour
             powerRes = power[count];
             luckRes = luck[count];
             shieldRes = shield[count];
+            countRes = count;
             check = count;
         }
     }

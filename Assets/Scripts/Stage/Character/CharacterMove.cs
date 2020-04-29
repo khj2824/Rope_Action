@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMove : MonoBehaviour
 {
     public int direct;
+    public Sprite[] character;
     float time;
     GameObject rope;
 
@@ -41,6 +42,7 @@ public class CharacterMove : MonoBehaviour
         power = 1 + power / 10f;
         luck = MainManager.luckRes;
         shield = MainManager.shieldRes;
+        transform.GetComponent<SpriteRenderer>().sprite = character[MainManager.countRes];
     }
 
     // Update is called once per frame

@@ -11,14 +11,12 @@ public class StageUiManager : MonoBehaviour
     public GameObject optionpanel;
     public GameObject Player;
     public GameObject ResultPanel;
-    public List<Sprite> Number;
-    public List<Image> Score;
+    public Text Score;
 
     int Player_y;
     int finalscore;
     void Start()
     {
-        Score[0].gameObject.SetActive(true);
         optionpanel.SetActive(false);
         finalscore = 0;
     }
@@ -29,27 +27,11 @@ public class StageUiManager : MonoBehaviour
         if(Player_y>finalscore)
         {
             finalscore = Player_y;
-            Result();
+            Score.text = finalscore.ToString();
         }
 
         ResultPanel.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = "Score : " + finalscore.ToString();
         ResultPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = "Gain Coint : " + (finalscore / 10).ToString();
-    }
-
-    void Result()
-    {
-        int count = 0;
-        while(true)
-        {
-            if (finalscore / ((int)Mathf.Pow(10 , count)) != 0)
-                count++;
-            else break;
-        }
-        for(int i=0;i<count;i++)
-        {
-            Score[i].gameObject.SetActive(true);
-            Score[i].sprite = Number[(finalscore / (int)Mathf.Pow(10, i)) % 10];
-        }
     }
 
     public void Option()
